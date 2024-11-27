@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: policy-openshift-plus
+  name: policy-odf
 placementBindingDefaults:
   name: binding-policy-openshift-plus-hub
 policyDefaults:
@@ -11,7 +11,7 @@ policyDefaults:
     - CM-2 Baseline Configuration
   namespace: policies
   policySets:
-    - openshift-plus-hub
+    - odf-policyset
   remediationAction: enforce
   severity: medium
   standards:
