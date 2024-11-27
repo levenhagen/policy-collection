@@ -1,9 +1,9 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: policy-odf
+  name: odf-policygenerator
 placementBindingDefaults:
-  name: binding-policy-openshift-plus-hub
+  name: binding-policy-odf
 policyDefaults:
   categories:
     - CM Configuration Management
@@ -46,17 +46,9 @@ policies:
   remediationAction: inform
 # ODF Policies - end
 policySets:
-  - description: The OpenShift Platform Plus policy set applies several policies
-      that will install the OpenShift Platform Plus products using best practices
-      that allow them to work well together. This policy set is focused on 
-      the components that install to the Advanced Cluster Management hub.
-    name: openshift-plus-hub
-    placement:
-      placementPath: input/hub-placement.yaml
-  - description: The OpenShift Platform Plus policy set applies several policies
-      that install the OpenShift Platform Plus products using best practices
-      that allow them to work well together. This policy set is focused on 
+  - description: The ODF policy set applies several policies
+      that install the OpenShift Data Foundation using best practices. This policy set is focused on 
       the components that install to every managed cluster.
-    name: openshift-plus-clusters
+    name: odf-policyset
     placement:
       placementPath: input/clusters-placement.yaml
