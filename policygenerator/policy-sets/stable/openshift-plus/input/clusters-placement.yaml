@@ -4,9 +4,15 @@ metadata:
   name: placement-openshift-plus-clusters
   namespace: policies
 spec:
+  numberOfClusters: 2
+  clusterSets:
+    - global
   predicates:
-  - requiredClusterSelector:
-      labelSelector:
-        matchExpressions:
-          - {key: vendor, operator: In, values: ["OpenShift"]}
-          - {key: "local-cluster", operator: NotIn, values: ["true"]}
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: name
+              operator: In
+              values:
+                - aro-central
+                - rosa-hcp
