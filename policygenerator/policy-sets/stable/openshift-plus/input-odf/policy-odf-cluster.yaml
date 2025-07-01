@@ -64,26 +64,26 @@ spec:
                 memory: 500Mi
             rgw: {}
           storageDeviceSets:
-          - config: {}
-            count: 1
-            dataPVCTemplate:
-              metadata: {}
-              spec:
-                accessModes:
-                - ReadWriteOnce
-                resources:
-                  requests:
-                    storage: 100Gi
+            - config: {}
+              count: 1
+              dataPVCTemplate:
+                metadata: {}
+                spec:
+                  accessModes:
+                    - ReadWriteOnce
+                  resources:
+                    requests:
+                      storage: 100Gi
     {{- if (eq (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").spec.platformSpec.type "VSphere") }}
-                storageClassName: thin-csi-odf
+                  storageClassName: thin-csi-odf
     {{- else }}
-                storageClassName: gp3-csi
+                  storageClassName: gp3-csi
     {{- end }}
-                volumeMode: Block
-              status: {}
-            name: ocs-deviceset
-            placement: {}
-            portable: true
-            preparePlacement: {}
-            replica: 3
-            resources: {}
+                  volumeMode: Block
+                status: {}
+              name: ocs-deviceset
+              placement: {}
+              portable: true
+              preparePlacement: {}
+              replica: 3
+              resources: {}
