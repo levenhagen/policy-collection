@@ -25,6 +25,8 @@ policies:
     - SI-7 Software Firmware and Information Integrity
   manifests:
     - path: input-odf/policy-odf.yaml
+  policySets:
+    - openshift-plus-clusters
 - name: policy-odf-cluster
   categories:
     - SI System and Information Integrity
@@ -34,6 +36,8 @@ policies:
     - name: policy-odf
   manifests:
     - path: input-odf/policy-odf-cluster.yaml
+  policySets:
+    - openshift-plus-clusters
 - name: policy-odf-status
   categories:
     - SI System and Information Integrity
@@ -44,6 +48,8 @@ policies:
   manifests:
     - path: input-odf/policy-odf-status.yaml
   remediationAction: inform
+  policySets:
+    - openshift-plus-clusters
 # ODF Policies - end
 policySets:
   - description: The OpenShift Platform Plus policy set applies several policies
