@@ -15,7 +15,6 @@ spec:
   complianceType: musthave
   upgradeApproval: Automatic
   operatorGroup:
-    name: openshift-storage-operatorgroup
     namespace: openshift-storage
     targetNamespaces:
       - openshift-storage
