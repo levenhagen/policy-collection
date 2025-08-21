@@ -14,10 +14,6 @@ spec:
   severity: high
   complianceType: musthave
   upgradeApproval: Automatic
-  operatorGroup:
-    namespace: openshift-storage
-    targetNamespaces:
-      - openshift-storage
   subscription:
     name: odf-operator
     namespace: openshift-storage
