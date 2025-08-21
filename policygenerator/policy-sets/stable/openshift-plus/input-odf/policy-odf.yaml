@@ -24,12 +24,27 @@ spec:
     source: redhat-operators
     sourceNamespace: openshift-marketplace
 ---
-apiVersion: ocs.openshift.io/v1
-kind: StorageCluster
+apiVersion: policy.open-cluster-management.io/v1
+kind: ConfigurationPolicy
 metadata:
-  name: ocs-storagecluster
-  namespace: openshift-storage
-spec: {}
+  name: policy-odf-storagesystem
+spec:
+  remediationAction: enforce
+  severity: low
+  object-templates-raw: |
+    {{- if semverCompare  "< 4.19" (fromClusterClaim "version.openshift.io") }}
+    - complianceType: musthave
+      objectDefinition:
+        apiVersion: odf.openshift.io/v1alpha1
+        kind: StorageSystem
+        metadata:
+          name: ocs-storagecluster-storagesystem
+          namespace: openshift-storage
+        spec:
+          kind: storagecluster.ocs.openshift.io/v1
+          name: ocs-storagecluster
+          namespace: openshift-storage
+    {{- end }}
 ---
 apiVersion: operator.openshift.io/v1
 kind: Console
